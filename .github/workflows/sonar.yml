@@ -7,8 +7,8 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
-    name: Build
-    runs-on: self-hosted
+    name: Maven & Sonar Analysis
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -44,4 +44,4 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         uses: SonarSource/sonarqube-quality-gate-action@v1.0.0
         with:
-          scanMetadataReportFile: /home/aswath/actions-runner/_work/github-action-project/github-action-project/target/sonar/report-task.txt
+          scanMetadataReportFile: /home/runner/work/github-action-project/github-action-project/target/sonar/report-task.txt
