@@ -29,7 +29,8 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-          
+      - name: Install
+        run: mvn clean install   
       - name: Test
         run: mvn test
       - name: Build and Sonar analysis
