@@ -25,8 +25,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean verify sonar:sonar'
-
-- task: SonarCloudAnalyze@1
+    sonarQubeRunAnalysis: true
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
