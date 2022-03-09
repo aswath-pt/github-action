@@ -10,11 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: SonarQubePreBuild@1
-  inputs:
-    projectKey: 'aswath-pt_github-action-project'
-    projectName: 'aswath-pt'
-    projectVersion: '1.0'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -24,4 +20,5 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aswath-pt_github-action-project
     goals: 'package'
