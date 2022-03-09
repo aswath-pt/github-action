@@ -11,6 +11,13 @@ pool:
 
 steps:
 
+# Prepare Analysis Configuration task
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'https://sonarcloud.io'
+    scannerMode: 'Other'
+    extraProperties: 'sonar.projectKey=aswath-pt_github-action-project'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -20,5 +27,4 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=aswath-pt_github-action-project
     goals: 'package'
