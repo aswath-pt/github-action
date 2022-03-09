@@ -11,7 +11,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: SonarCloudAnalyze@1
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'maven test'
+    organization: 'aswath-pt'
+    scannerMode: 'Other'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
