@@ -10,14 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
-# Prepare Analysis Configuration task
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'https://sonarcloud.io'
-    scannerMode: 'Other'
-    extraProperties: 'sonar.projectKey=aswath-pt_github-action-project'
-
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
