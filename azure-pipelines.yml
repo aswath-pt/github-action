@@ -16,6 +16,9 @@ steps:
     SonarCloud: 'maven test'
     organization: 'aswath-pt'
     scannerMode: 'Other'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
